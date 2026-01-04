@@ -1,8 +1,12 @@
 import React from "react";
 import { data } from "./data";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Blogshow() {
+  useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
   return (
     <section className="py-24 bg-white">
       <div className="max-w-[1280px] mx-auto px-4 md:px-6 2xl:px-10 space-y-12">
