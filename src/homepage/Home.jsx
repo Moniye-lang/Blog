@@ -6,24 +6,19 @@ export default function Home() {
     <section className="bg-[#7C4EE4]">
       <div
         className="
-          max-w-[1280px]
-          2xl:max-w-[1440px]
-          3xl:max-w-[1600px]
+          max-w-[1280px] 2xl:max-w-[1440px] 3xl:max-w-[1600px]
           mx-auto
-          min-h-[90vh]
-          px-4
-          md:px-6
-          2xl:px-10
-          flex
-          flex-col-reverse
-          md:flex-row
+         min-h-[auto] 
+         md:min-h-[80vh]
+         py-12 sm:py-16 md:py-0
+          px-4 md:px-6 2xl:px-10
+          flex flex-col-reverse md:flex-row
           items-center
-          justify-between
-          gap-12
-        "
+          gap-2 md:gap-12
+        "       
       >
         {/* Text Content */}
-        <div className="text-white max-w-[600px]">
+        <div className="text-white w-full md:w-[50%] text-center md:text-left">
           <span className="uppercase tracking-widest text-[13px] text-white/80">
             Featured Post
           </span>
@@ -31,10 +26,7 @@ export default function Home() {
           <h1
             className="
               mt-4
-              text-[36px]
-              sm:text-[44px]
-              md:text-[52px]
-              2xl:text-[60px]
+              text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] 2xl:text-[60px]
               font-semibold
               leading-tight
               tracking-tight
@@ -45,12 +37,12 @@ export default function Home() {
 
           <p
             className="
-              mt-6
+              mt-4 sm:mt-6
               text-white/90
-              text-[15px]
-              sm:text-[16px]
+              text-[14px] sm:text-[15px] md:text-[16px]
               leading-relaxed
-              max-w-[520px]
+              max-w-full
+              mx-auto md:mx-0
             "
           >
             The future of AI will see home robots having enhanced intelligence,
@@ -59,21 +51,16 @@ export default function Home() {
           </p>
 
           <Link
-          to="/blog"
+            to="/blog"
             className="
-              mt-10
-              inline-flex
-              items-center
-              justify-center
-              bg-white
-              text-[#7C4EE4]
-              font-medium
-              w-[160px]
-              h-[44px]
+              mt-6 sm:mt-8
+              inline-flex items-center justify-center
+              bg-white text-[#7C4EE4] font-medium
+              w-[140px] sm:w-[160px] h-[40px] sm:h-[44px]
               rounded-full
-              hover:bg-black
-              hover:text-white
+              hover:bg-[#E0D4FF] hover:text-[#7C4EE4]
               transition
+              mx-auto md:mx-0
             "
           >
             Read More
@@ -81,16 +68,12 @@ export default function Home() {
         </div>
 
         {/* Image */}
-        <div className="flex justify-center w-full md:w-auto">
+        <div className="flex justify-center w-full md:w-[50%]">
           <img
             src="/Container.png"
             alt="AI illustration"
             className="
-              w-[260px]
-              sm:w-[320px]
-              md:w-[420px]
-              2xl:w-[480px]
-              3xl:w-[520px]
+              w-[200px] sm:w-[260px] md:w-[360px] lg:w-[420px] 2xl:w-[480px]
               object-contain
             "
           />
