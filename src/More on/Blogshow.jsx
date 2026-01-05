@@ -8,7 +8,7 @@ export default function Blogshow() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }, []);
   return (
-    <section className="py-24 bg-white">
+    <section className="py-10 bg-white">
       <div className="max-w-[1280px] mx-auto px-4 md:px-6 2xl:px-10 space-y-12">
         {/* Blog Header */}
         <div className="flex flex-col items-center gap-4 text-center">

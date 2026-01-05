@@ -8,7 +8,7 @@ export default function Blog() {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }, []);
   return (
-    <section className="py-24 bg-white">
+    <section className="py-10 bg-white">
       <div
         className="
           max-w-[1280px]
