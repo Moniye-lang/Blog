@@ -1,52 +1,58 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+
+/**
+ * 10/10 PERFORMANCE STRATEGY:
+ * 1. Aspect-Ratio: Reserves space for the image so the layout doesn't "jump" when it loads.
+ * 2. Hardware Acceleration: Uses 'transform' for hovers to keep animations at 60fps.
+ * 3. Semantic HTML: Uses <section> and <h1> for better SEO indexing.
+ */
 
 export default function Home() {
+  // Logic to ensure the user starts at the top of the page on route change
   useEffect(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, []);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
-    <section className="bg-[#7C4EE4]">
+    <section className="bg-[#7C4EE4] w-full overflow-hidden">
       <div
         className="
-          max-w-[1280px] 2xl:max-w-[1440px] 3xl:max-w-[1600px]
+          max-w-[1440px] 2xl:max-w-[1600px] 
           mx-auto
-         min-h-[auto] 
-         md:min-h-[80vh]
-         py-12 sm:py-16 md:py-0
-          px-4 md:px-6 2xl:px-10
+          min-h-screen md:min-h-[85vh]
+          py-12 md:py-0
+          px-6 md:px-12
           flex flex-col-reverse md:flex-row
-          items-center
-          gap-2 md:gap-12
-        "       
+          items-center justify-between
+          gap-10 md:gap-16
+        "
       >
-        {/* Text Content */}
-        <div className="text-white w-full md:w-[50%] text-center md:text-left">
-          <span className="uppercase tracking-widest text-[13px] text-white/80">
+        {/* TEXT CONTENT */}
+        <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+          <span className="uppercase tracking-[0.2em] text-[12px] font-bold text-white/70 bg-white/10 px-4 py-1.5 rounded-lg mb-6">
             Featured Post
           </span>
 
           <h1
             className="
-              mt-4
-              text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] 2xl:text-[60px]
-              font-semibold
-              leading-tight
+              text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[76px]
+              font-black
+              text-white
+              leading-[1.1]
               tracking-tight
             "
           >
-            How AI will <br className="hidden sm:block" /> Change the Future
+            How AI will <br className="hidden lg:block" /> Change the Future
           </h1>
 
           <p
             className="
-              mt-4 sm:mt-6
-              text-white/90
-              text-[14px] sm:text-[15px] md:text-[16px]
+              mt-8
+              text-white/80
+              text-base sm:text-lg lg:text-xl
               leading-relaxed
-              max-w-full
-              mx-auto md:mx-0
+              max-w-xl
             "
           >
             The future of AI will see home robots having enhanced intelligence,
@@ -57,30 +63,37 @@ export default function Home() {
           <Link
             to="/blog"
             className="
-              mt-6 sm:mt-8
+              mt-10
               inline-flex items-center justify-center
-              bg-white text-[#7C4EE4] font-medium
-              w-[140px] sm:w-[160px] h-[40px] sm:h-[44px]
-              rounded-full
-              hover:bg-[#E0D4FF] hover:text-[#7C4EE4]
-              transition
-              mx-auto md:mx-0
+              bg-white text-[#7C4EE4]
+              px-12 py-4
+              rounded-full font-bold text-lg
+              hover:bg-[#f3efff] hover:scale-105
+              active:scale-95
+              transition-all duration-300
+              shadow-2xl shadow-black/20
             "
           >
             Read More
           </Link>
         </div>
 
-        {/* Image */}
-        <div className="flex justify-center w-full md:w-[50%]">
-          <img
-            src="/Container.png"
-            alt="AI illustration"
-            className="
-              w-[200px] sm:w-[260px] md:w-[360px] lg:w-[420px] 2xl:w-[480px]
-              object-contain
-            "
-          />
+        {/* IMAGE SECTION */}
+        <div className="w-full md:w-1/2 flex justify-center items-center">
+          <div className="relative w-full max-w-[300px] sm:max-w-[450px] lg:max-w-[600px]">
+            {/* The "Glow" - adds depth to the illustration */}
+            <div className="absolute inset-0 bg-white/20 rounded-full blur-[100px] animate-pulse" />
+            
+            {/* Aspect Ratio Container: This stops the page jumping when the image loads */}
+            <div className="aspect-square w-full h-full relative z-10">
+              <img
+                src="/Container.png"
+                alt="AI Future Illustration"
+                className="w-full h-full object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.4)]"
+                loading="eager" 
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
